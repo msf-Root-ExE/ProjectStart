@@ -2,7 +2,7 @@ The script will create a new project folderand, an nmap folder inside to save th
 
 To use, download the script
 
-git clone https://github.com/msf-Root-ExE/nmap_tcp_scan.git
+git clone - 
 
 Go into the directory and modify the permissions of the script
 
