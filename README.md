@@ -6,7 +6,7 @@ git clone -
 
 Go into the directory and modify the permissions of the script
 
-chmod 700 nmap_tcp_scan.sh
+chmod 700 projectStart.sh
 
 To run the script
 
