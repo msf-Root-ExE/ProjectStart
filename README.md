@@ -10,7 +10,7 @@ chmod 700 nmap_tcp_scan.sh
 
 To run the script
 
-./nmap_tcp_scan.sh
+./projectStart.sh
 
 Enter the project name.
 Enter the network range xxx.xxx.xxx.xxx/xx and the results will start coming in.
