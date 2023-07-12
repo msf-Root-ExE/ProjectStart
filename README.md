@@ -2,7 +2,7 @@ The script will create a new project folderand, an nmap folder inside to save th
 
 To use, download the script
 
-git clone - 
+git clone - https://github.com/msf-Root-ExE/ProjectStart.git
 
 Go into the directory and modify the permissions of the script
 
@@ -15,11 +15,13 @@ To run the script
 Enter the project name.
 Enter the network range xxx.xxx.xxx.xxx/xx and the results will start coming in.
 
-This script will 3 3 different scans.
+This script will multiple different scans.
 
 1.	Ping Sweep to identify live hosts
-2.	Thorough on all hosts identified
+2.	Syn,version and script scan only on live hosts identified by the ping sweep.
 3.	Full Scan on the whole range, including port 0 treating all hosts as live.
-
+4.  Create a full list of hosts ID'd by the -pN full scan - taking hosts into account that are hidden from ping run the following UDP scans 
+5.  UDP top 100 scan
+6.  Full UDP scan on all hosts
 
 
