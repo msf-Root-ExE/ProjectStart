@@ -15,7 +15,7 @@ echo "Directory created successfully. The project directory name is ${project_na
 cd "${project_name}"
 
 # Create directories
-mkdir "nmap" "Evidence" "Notes" "Pre-Reqs"
+mkdir "nmap" "Evidence" "Notes" "Pre-Reqs" "Web-App"
 
 echo "Directories created successfully. The directory names are nmap, Evidence, Notes, Pre-Reqs."
 
