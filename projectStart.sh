@@ -53,7 +53,7 @@ nmap -sSVC -vv -iL live_hosts.txt -oA fast_scan_tcp | tee TCPvulnScan.txt
 
 # Perform full scan including port 0 and output in all formats
 echo "Running full scan including port 0 on full range treating all hosts as live..."
-full_scan=$(nmap -sSVC -Pn -p0-65535 $target -oA full_scan_tcp --max-rtt-timeout=950ms --max-retries=9 --version-intensity= 9 --max-scan-delay=50ms --min-rate=10000 --reason --script=banner | tee TCPFullScan.txt)
+full_scan=$(nmap -sSVC -Pn -p0-65535 $target -oA full_scan_tcp --max-rtt-timeout=950ms --max-retries=9 --version-intensity= 9 --max-scan-delay=50ms --min-rate=1000 --reason --script=banner | tee TCPFullScan.txt)
 
 # Extract live hosts from the full scan and write to full_hosts.txt
 echo "$full_scan" | grep 'Nmap scan report for' | cut -d ' ' -f 5 > full_hosts.txt
