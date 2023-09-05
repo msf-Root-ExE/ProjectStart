@@ -76,7 +76,7 @@ nmap -sU -vv -Pn --top-ports 100 -iL full_hosts.txt -oA fast_scan_udp | tee UDPf
 
 # Perform UDP full scan output in all formats
 echo "Running full UDP scan on all hosts..."
-nmap -Pn -sUV -iL full_hosts.txt -oA full_scan_upd | tee UDPfullscan.txt
+nmap -Pn -sUV -p0-65535 -iL full_hosts.txt -oA full_scan_upd | tee UDPfullscan.txt
 
 echo "UDP Scans complete."
 
