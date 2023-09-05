@@ -24,4 +24,6 @@ This script will multiple different scans.
 5.  UDP top 100 scan
 6.  Full UDP scan on all hosts
 
+This is for educational purposes only and should not be used in any kind of an attack.
+
 
