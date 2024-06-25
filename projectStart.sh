@@ -45,6 +45,15 @@ cd "TCP"
 # Prompt user for target IP or hostname
 read -p "Enter target IP or hostname: " target
 
+# Validate target input
+if [[ ! $target =~ ^([0-9]{1,3}\.){3}[0-9]{1,3}$ && ! $target =~ ^([a-zA-Z0-9\.\-]+)$ ]]; then
+    echo "Invalid IP address or hostname."
+    exit 1
+fi
+
+# Debug output
+echo "Target is: $target"
+
 # Run Nmap ping sweep and output live hosts to txt file
 echo "Running Nmap ping sweep on target $target..."
 ping_sweep=$(nmap -sn $target | grep 'Nmap scan report for' | cut -d ' ' -f 5)
@@ -65,7 +74,7 @@ nmap -sSVC -vv -iL live_hosts.txt -oA fast_scan_tcp | tee TCPvulnScan.txt
 
 # Perform full scan including port 0 and output in all formats
 echo "Running full scan including port 0 on full range treating all hosts as live..."
-full_scan=$(nmap -sSVC -Pn -p0-65535 $target -oA full_scan_tcp --max-rtt-timeout=950ms --max-retries=9 --version-intensity= 9 --max-scan-delay=50ms --min-rate=1000 --reason --script=banner | tee TCPFullScan.txt)
+full_scan=$(nmap -sSVC -Pn -p0-65535 $target -oA full_scan_tcp --max-rtt-timeout=950ms --max-retries=9 --version-intensity=9 --max-scan-delay=50ms --min-rate=1000 --reason --script=banner | tee TCPFullScan.txt)
 
 # Extract live hosts from the full scan and write to full_hosts.txt
 echo "$full_scan" | grep 'Nmap scan report for' | cut -d ' ' -f 5 > full_hosts.txt
